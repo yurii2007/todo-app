@@ -30,8 +30,6 @@ To add Todo click the button on right bottom of the screen and enter the data of
 
 ![Add Form](./assets/create-form.png)
 
-
-
 # Info for Developers
 
 ## Getting Started with Create React App
@@ -53,6 +51,10 @@ And then run in your terminal one of available scripts
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Run this script before `npm start` to install all project dependencies
 
 ### `npm start`
 

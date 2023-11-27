@@ -40,7 +40,11 @@ const todoSlice = createSlice({
       .addCase(getTodos.fulfilled, todosFulfilled)
       .addCase(getTodos.rejected, todosRejected)
       .addCase(getTodosByPage.pending, todosPending)
-      .addCase(getTodosByPage.fulfilled, todosFulfilled)
+      .addCase(getTodosByPage.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.todos = [...payload];
+        state.error = null;
+      })
       .addCase(getTodosByPage.rejected, todosRejected)
       .addCase(updateTodo.pending, todosPending)
       .addCase(updateTodo.fulfilled, (state, { payload }) => {

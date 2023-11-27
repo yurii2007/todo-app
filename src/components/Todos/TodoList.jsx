@@ -1,6 +1,6 @@
 import React from "react";
 import TodoItem from "./TodoItem";
-import LoadMore from "./LoadMore";
+import PaginationBtn from "./PaginationBtn";
 
 const TodoList = ({ todos }) => {
   return (
@@ -10,7 +10,7 @@ const TodoList = ({ todos }) => {
           <TodoItem key={todo.id} todo={todo} />
         ))}
       </ul>
-      <LoadMore />
+      <PaginationBtn />
     </>
   );
 };
