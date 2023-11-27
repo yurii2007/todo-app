@@ -32,3 +32,24 @@ export const updateTodo = createAsyncThunk("todos/updateOne", async (credentials
     return error.message;
   }
 });
+
+export const deleteTodo = createAsyncThunk("todos/deleteOne", async (credentials) => {
+  try {
+    await instance.delete(`todos/${credentials}`);
+    return credentials;
+  } catch (error) {
+    return error.message;
+  }
+});
+
+export const createTodo = createAsyncThunk("todos/createOne", async (credentials) => {
+  try {
+    const { data } = await instance.post("todos", {
+      userId: 1,
+      ...credentials,
+    });
+    return data;
+  } catch (error) {
+    return error.message;
+  }
+});

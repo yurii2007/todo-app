@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { getTodos, getTodosByPage, updateTodo } from "./operations";
+import {
+  createTodo,
+  deleteTodo,
+  getTodos,
+  getTodosByPage,
+  updateTodo,
+} from "./operations";
 
 const initialState = {
   todos: [],
@@ -20,7 +26,7 @@ const todosRejected = (state, action) => {
 
 const todosFulfilled = (state, action) => {
   state.isLoading = false;
-  state.todos = [...action.payload];
+  state.todos = [...state.todos, ...action.payload];
   state.error = null;
 };
 
@@ -39,10 +45,27 @@ const todoSlice = createSlice({
       .addCase(updateTodo.pending, todosPending)
       .addCase(updateTodo.fulfilled, (state, { payload }) => {
         const todoIndex = state.todos.findIndex((todo) => todo.id === payload.id);
-        if (todoIndex === -1) return;
+        if (todoIndex === -1) {
+          state.error = "Can not find todo in current list";
+          return;
+        }
         state.todos[todoIndex] = { ...payload };
       })
-      .addCase(updateTodo.rejected, todosRejected);
+      .addCase(updateTodo.rejected, todosRejected)
+      .addCase(deleteTodo.pending, todosPending)
+      .addCase(deleteTodo.fulfilled, (state, { payload }) => {
+        const todoIndex = state.todos.findIndex((todo) => todo.id === payload);
+        if (todoIndex === -1) {
+          state.error = "Can not find todo in current list";
+          return;
+        }
+        state.todos.splice(todoIndex, 1);
+      })
+      .addCase(createTodo.pending, todosPending)
+      .addCase(createTodo.fulfilled, (state, { payload }) => {
+        state.todos.unshift(payload);
+      })
+      .addCase(createTodo.rejected, todosRejected);
   },
 });
 

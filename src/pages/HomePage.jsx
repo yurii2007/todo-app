@@ -1,15 +1,10 @@
-import { useSelector } from "react-redux";
-
-import { selectTodos } from "../redux/selectors";
-
-import TodoList from "../components/Todos/TodoList";
-
 const HomePage = () => {
-  const todos = useSelector(selectTodos);
   return (
-    <>
-      <TodoList todos={todos} />
-    </>
+    <main>
+      <section>
+        <h1 className="main-text">Todo app</h1>
+      </section>
+    </main>
   );
 };
 

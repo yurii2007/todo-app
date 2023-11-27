@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { getTodos } from "../redux/todoSlice.js/operations";
 
-import Header from "./Header/Header"
+import Header from "./Header/Header";
 
 const SharedLayout = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const SharedLayout = () => {
   };
   return (
     <>
-    <Header />
+      <Header />
       <button
         onClick={handleClick}
         className="mb-[100px] bg-black text-white p-3"
@@ -22,9 +22,11 @@ const SharedLayout = () => {
       >
         get Todos
       </button>
-      <Suspense fallback={<div>Loading</div>}>
-        <Outlet />
-      </Suspense>
+      <main className="bg-bg-primary">
+        <Suspense fallback={<div>Loading</div>}>
+          <Outlet />
+        </Suspense>
+      </main>
     </>
   );
 };
