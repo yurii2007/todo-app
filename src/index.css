@@ -5,3 +5,9 @@
 html {
   scroll-behavior: smooth;
 }
+
+@layer components {
+  .base-text {
+    @apply text-center
+  }
+}
