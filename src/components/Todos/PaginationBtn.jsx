@@ -8,6 +8,7 @@ const PaginationBtn = () => {
   const dispatch = useDispatch();
 
   const onPaginationClick = (direction) => {
+    // check by direction next page
     dispatch(
       getTodosByPage({
         start: direction === 1 ? currentPage + 1 : currentPage - 1,

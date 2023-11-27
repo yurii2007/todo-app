@@ -16,6 +16,7 @@ const TodoItem = ({ todo }) => {
   const dispatch = useDispatch();
 
   const editButtonClick = () => {
+    // set edit mode or update todo after editing
     if (!isEditing) return setIsEditing(true);
     dispatch(updateTodo({ ...todo, ...todoData }));
     setIsEditing(false);

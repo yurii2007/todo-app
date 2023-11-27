@@ -15,6 +15,7 @@ export const getTodosByPage = createAsyncThunk(
   "todos/getByPage",
   async (credentials, thunkAPI) => {
     try {
+      // set params for request by current page
       const params = new URLSearchParams({
         _start: credentials.start * 5,
         _limit: credentials.limit,

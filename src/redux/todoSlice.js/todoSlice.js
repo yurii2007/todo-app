@@ -69,12 +69,14 @@ const todoSlice = createSlice({
         }
         state.todos.splice(todoIndex, 1);
         state.isLoading = false;
+        state.error = null;
       })
       .addCase(createTodo.pending, todosPending)
       .addCase(createTodo.fulfilled, (state, { payload }) => {
         // add new element at the beginning of a store
         state.todos.unshift(payload);
         state.isLoading = false;
+        state.error = null;
       })
       .addCase(createTodo.rejected, todosRejected);
   },
