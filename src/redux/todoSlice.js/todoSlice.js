@@ -46,12 +46,14 @@ const todoSlice = createSlice({
       .addCase(updateTodo.fulfilled, (state, { payload }) => {
         // looking for index of updating element
         const todoIndex = state.todos.findIndex((todo) => todo.id === payload.id);
+        state.isLoading = false;
         if (todoIndex === -1) {
           state.error = "Can not find todo in current list";
           return;
         }
         // update element in store
         state.todos[todoIndex] = { ...payload };
+        state.error = null;
       })
       .addCase(updateTodo.rejected, todosRejected)
       .addCase(deleteTodo.pending, todosPending)
@@ -62,11 +64,13 @@ const todoSlice = createSlice({
           return;
         }
         state.todos.splice(todoIndex, 1);
+        state.isLoading = false;
       })
       .addCase(createTodo.pending, todosPending)
       .addCase(createTodo.fulfilled, (state, { payload }) => {
         // add new element at the beginning of a store
         state.todos.unshift(payload);
+        state.isLoading = false;
       })
       .addCase(createTodo.rejected, todosRejected);
   },

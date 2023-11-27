@@ -10,6 +10,6 @@
     @apply text-center text-font-primary;
   }
   .btn-primary {
-    @apply inline-block py-3 px-5 bg-btn-primary text-white hover:bg-transparent border-transparent border hover:border-[#CED2D1] hover:text-font-primary text-sm font-bold leading-4 tracking-wide;
+    @apply inline-block py-3 px-5 bg-btn-primary text-white hover:bg-transparent border-transparent border hover:border-[#CED2D1] hover:text-font-primary text-sm font-bold leading-4 tracking-wide transition;
   }
 }

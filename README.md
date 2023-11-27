@@ -1,12 +1,54 @@
-# Getting Started with Create React App
+# Getting Started with Todo App
+
+Welcome to my Todo App, where you can manage your tasks and always stay on top with your responsibilities
+
+![Home page](./assets/home-page.png)
+
+## Todo list
+
+![Todo List](./assets//todo-page.png)
+
+## How to edit your Todo
+
+Press the button below:
+
+![Edit Button](./assets/edit-button.png)
+
+And then you will be in editing mode, click on title to rewrite it or click on red/green circle to change the status
+
+![Editing Mode](./assets/editing-mode.png)
+
+## How to add/delete your Todo
+
+To delete your todo click the red button
+
+![Delete button](./assets/delete-btn.png)
+
+To add Todo click the button on right bottom of the screen and enter the data of new todo
+
+![Add Button](./assets/add-btn.png)
+
+![Add Form](./assets/create-form.png)
+
+
+
+# Info for Developers
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## How to clone this repository
 
-Press the button `<Code>`, and then press the button `Open with GitHub Desktop`, or clone repo with github cli
+Click the button `<Code>`, and then click the button `Open with GitHub Desktop`, or clone repo with github cli
 
 ![Cloning repo](./assets/clone-example.png)
+
+After GitHub Desktop opens, click the button `Open in Visual Studio Code`
+
+![Github Desktop interface](./assets//gh-desktop-example.png)
+
+And then run in your terminal one of available scripts
 
 ## Available Scripts
 
