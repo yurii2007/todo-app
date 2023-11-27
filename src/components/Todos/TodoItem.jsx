@@ -5,6 +5,7 @@ import { deleteTodo, updateTodo } from "../../redux/todoSlice.js/operations";
 
 import { ReactComponent as EditButton } from "../../images/svg/edit_icon.svg";
 import { ReactComponent as DeleteButton } from "../../images/svg/delete_icon.svg";
+import { ReactComponent as CheckMark } from "../../images/svg/checkmark.svg";
 
 const TodoItem = ({ todo }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -28,26 +29,51 @@ const TodoItem = ({ todo }) => {
   const deleteButtonClick = () => dispatch(deleteTodo(todo.id));
 
   return (
-    <li className="p-2 bg-slate-950">
-      <input
-        value={todoData.title}
-        readOnly={!isEditing}
-        onChange={(e) =>
-          setTodoData((prevData) => ({ ...prevData, title: e.target.value }))
-        }
-      />
-      <div
-        onClick={completedButtonClick}
-        className={`${
-          todoData.completed ? "bg-green-600" : "bg-red-600"
-        } w-[40px] h-[40px] rounded-full`}
-      ></div>
-      <button onClick={editButtonClick} type="button">
-        <EditButton width={30} height={30} />
-      </button>
-      <button onClick={deleteButtonClick} type="button">
-        <DeleteButton width={30} height={30} className="fill-red-900" />
-      </button>
+    <li className="px-5 py-3 bg-white text-slate-950 flex flex-col gap-2 w-[274px] md:w-[600px]">
+      <div className="flex gap-2 items-center">
+        <p className="secondary-text">Title: &nbsp;</p>
+        <input
+          value={todoData.title}
+          readOnly={!isEditing}
+          onChange={(e) =>
+            setTodoData((prevData) => ({ ...prevData, title: e.target.value }))
+          }
+          className="focus-within:outline-none text-sm md:text-base"
+        />
+      </div>
+      <div className="flex gap-2">
+        <p className="secondary-text">Status: &nbsp;</p>
+        <span
+          onClick={completedButtonClick}
+          className={`${
+            todoData.completed ? "bg-green-600" : "bg-red-600"
+          } inline-block w-[25px] h-[25px] rounded-full`}
+        ></span>
+      </div>
+      <div className="flex gap-3 justify-end">
+        <button onClick={editButtonClick} className="group" type="button">
+          {isEditing ? (
+            <CheckMark
+              width={30}
+              height={30}
+              className="fill-gray-600 group-hover:fill-gray-900 group-focus:fill-gray-900"
+            />
+          ) : (
+            <EditButton
+              width={30}
+              height={30}
+              className="fill-gray-600 group-hover:fill-gray-900 group-focus:fill-gray-900"
+            />
+          )}
+        </button>
+        <button onClick={deleteButtonClick} className="group" type="button">
+          <DeleteButton
+            width={30}
+            height={30}
+            className="fill-red-600 group-hover:fill-red-950 group-focus:fill-red-950"
+          />
+        </button>
+      </div>
     </li>
   );
 };

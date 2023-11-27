@@ -4,9 +4,12 @@
 
 @layer components {
   .secondary-text {
-    @apply text-center text-font-primary;
+    @apply text-center text-font-primary text-base font-semibold md:text-lg;
   }
   .main-text {
     @apply text-center text-font-primary;
+  }
+  .btn-primary {
+    @apply inline-block py-3 px-5 bg-btn-primary text-white hover:bg-transparent border-transparent border hover:border-[#CED2D1] hover:text-font-primary text-sm font-bold leading-4 tracking-wide;
   }
 }

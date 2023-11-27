@@ -8,9 +8,9 @@ const TodosPage = () => {
   const todos = useSelector(selectTodos);
 
   return (
-    <>
+    <section className="py-3 md:py-4">
       <TodoList todos={todos} />
-    </>
+    </section>
   );
 };
 
